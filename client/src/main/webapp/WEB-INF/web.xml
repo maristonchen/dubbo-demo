@@ -6,7 +6,7 @@
     <context-param>
         <!-- 如果不加, 同一tomcat部署会冲突 -->
         <param-name>webAppRootKey</param-name>
-        <param-value>dubbo.app.root</param-value>
+        <param-value>dubbo.client.root</param-value>
     </context-param>
 
     <context-param>
@@ -55,12 +55,12 @@
     </filter-mapping>
 
     <!-- spring mvc -->
-<!--    <servlet>
+    <servlet>
         <servlet-name>spring mvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/spring-global.xml</param-value>
+            <param-value>classpath:spring/spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -68,7 +68,7 @@
     <servlet-mapping>
         <servlet-name>spring mvc</servlet-name>
         <url-pattern>/web/*</url-pattern>
-    </servlet-mapping>-->
+    </servlet-mapping>
 
 
     <session-config>

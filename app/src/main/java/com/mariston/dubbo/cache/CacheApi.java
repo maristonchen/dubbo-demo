@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * (用一句话描述该文件做什么)
+ * 容器api
  *
  * @author mariston
  * @version V1.0
@@ -27,13 +27,7 @@ public class CacheApi {
     /**
      * 线程安全的容器
      */
-    private final ThreadLocal<Map<String, Insurance>> insuranceMap = new ThreadLocal<Map<String, Insurance>>() {
-        @Override
-        protected Map<String, Insurance> initialValue() {
-            return new HashMap<>();
-        }
-    };
-
+    private final static Map<String, Insurance> insuranceMap = new HashMap<>();
 
     /**
      * 添加保险
@@ -46,7 +40,7 @@ public class CacheApi {
         logger.info("===添加保险信息：\n{}", insurance);
 
         if (insurance != null) {
-            this.insuranceMap.get().put(insurance.getInsuranceNo(), insurance);
+            insuranceMap.put(insurance.getInsuranceNo(), insurance);
         }
         return "操作成功";
     }
@@ -59,7 +53,7 @@ public class CacheApi {
      */
     public Insurance get(String insuranceNo) {
         logger.info("===查询保险编号为：[{}]=====", insuranceNo);
-        return this.insuranceMap.get().get(insuranceNo);
+        return insuranceMap.get(insuranceNo);
     }
 
     /**
@@ -78,7 +72,7 @@ public class CacheApi {
     public void clear() {
         logger.info("======开始扫描========");
 
-        insuranceMap.get().clear();
+        insuranceMap.clear();
     }
 
 }
