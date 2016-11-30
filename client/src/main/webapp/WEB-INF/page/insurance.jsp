@@ -109,6 +109,11 @@
             <a href="javascript:void(0)" class="a_butt" style="" onclick="sub()">提交</a>
         </form>
     </div>
+    <div style="text-align: center;">
+        订单查询：
+        <input id="query-insurance-no" />
+        <a href="javascript:void(0)" class="a_butt" style="" onclick="query()">查询</a>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -184,6 +189,23 @@
             type: "post",
             url: $('#ctx').val() + "/web/insurance/save",
             data: $('#insurance-form').serialize(),
+            success: function (data) {
+                alert(data);
+            }
+
+        })
+    }
+
+    function query() {
+        var insuranceNo = $('#query-insurance-no').val();
+        if(!insuranceNo) {
+            alert('订单编号不能为空');
+            return;
+        }
+        $.ajax({
+            type: "post",
+            url: $('#ctx').val() + "/web/insurance/queryByNo",
+            data: {insuranceNo:insuranceNo},
             success: function (data) {
                 alert(data);
             }

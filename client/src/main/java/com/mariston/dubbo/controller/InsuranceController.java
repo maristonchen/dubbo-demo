@@ -45,7 +45,7 @@ public class InsuranceController {
      * @param insurance 保险信息
      * @return string
      */
-    @RequestMapping("/save")
+    @RequestMapping(value = "/save",produces = {"text/html;charset=utf-8"})
     @ResponseBody
     public String save(Insurance insurance) {
         return insuranceService.save(insurance);
@@ -58,7 +58,7 @@ public class InsuranceController {
      * @param insuranceNo 保险编号
      * @return string
      */
-    @RequestMapping("/queryByNo")
+    @RequestMapping(value = "/queryByNo",produces = {"text/html;charset=utf-8"})
     @ResponseBody
     public String queryByNo(String insuranceNo) {
 
