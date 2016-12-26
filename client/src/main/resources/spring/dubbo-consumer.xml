@@ -15,4 +15,6 @@
 	
 	<dubbo:reference id="insuranceApi" interface="com.mariston.dubbo.api.InsuranceApi" check="false"/>
 
+	<dubbo:reference id="orderApi" interface="com.mariston.dubbo.api.OrderApi" check="false"/>
+
 </beans>

@@ -46,9 +46,12 @@ public class InsuranceController {
      * @return string
      */
     @RequestMapping(value = "/save",produces = {"text/html;charset=utf-8"})
-    @ResponseBody
+//    @ResponseBody
     public String save(Insurance insurance) {
-        return insuranceService.save(insurance);
+
+        String success = insuranceService.save(insurance);
+
+        return "操作成功".equals(success)?"success":"";
     }
 
 

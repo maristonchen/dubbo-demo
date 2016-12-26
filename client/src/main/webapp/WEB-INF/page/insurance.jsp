@@ -49,10 +49,10 @@
     </div>
 </div>
 
-<div style=" width:95%; margin:20px auto; padding: 10px 0; background:#fff">
+<div id="divContent" style=" width:95%; margin:20px auto; padding: 10px 0; background:#fff">
     <div class="popup_t3_time"
          style=" position: initial; margin:0 auto; background:#fff; width:100%; height: auto; padding:5px 0">
-        <form id="insurance-form">
+        <form id="insurance-form" action="${ctx}/web/insurance/save">
             <table class="tab_xin" style=" width: 98%; margin: 0 auto;">
                 <tbody>
                 <tr>
@@ -109,14 +109,15 @@
             <a href="javascript:void(0)" class="a_butt" style="" onclick="sub()">提交</a>
         </form>
     </div>
-    <div style="text-align: center;">
-        订单查询：
+<%--    <div style="text-align: center;">
+        订单编号：
         <input id="query-insurance-no" />
         <a href="javascript:void(0)" class="a_butt" style="" onclick="query()">查询</a>
-    </div>
+    </div>--%>
 </div>
 
 <script type="text/javascript">
+    var orgContent = $('#divContent').html();
     /*添加保险*/
     function sub() {
         var OrderId = $("#insuranceNo").val();
@@ -190,7 +191,13 @@
             url: $('#ctx').val() + "/web/insurance/save",
             data: $('#insurance-form').serialize(),
             success: function (data) {
-                alert(data);
+                $("#divContent").empty().html(data);
+
+                $("#divContent").on('click', '#go_back', function () {
+
+                    $("#divContent").empty().html(orgContent);
+
+                });
             }
 
         })

@@ -14,5 +14,7 @@
 	<dubbo:reference id="registryService" interface="com.alibaba.dubbo.registry.RegistryService" />
 
 	<dubbo:service interface="com.mariston.dubbo.api.InsuranceApi" ref="insuranceApi" />
+
+	<dubbo:service interface="com.mariston.dubbo.api.OrderApi" ref="orderApi" />
 	
 </beans>
