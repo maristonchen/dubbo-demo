@@ -9,3 +9,5 @@ tomcat 部署
 3.client为dubbo调用服务
 
 访问路径为http://localhost:8107/web/insurance/toPage
+
+4.client项目中OrderApiTest测试单元为机票+酒店测试
